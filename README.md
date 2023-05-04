@@ -206,6 +206,22 @@ There are nine functions including the _main()_ function.
 
 #### main():
 
-This function is the entry point of the program. It displays the program's name in ASCII art, then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput()](#parseinput()) function. If there aren't, it calls the promptinput() function. If a KeyboardInterrupt is detected, it calls the exity() function with an appropriate message.
+This function is the entry point of the program. It displays the program's name in ASCII art(using [pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) library), then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput](#parseinput) function. If there aren't, it calls the [promptinput](#promptinput) function. If a KeyboardInterrupt is detected, it calls the [exity](#exity) function with an appropriate message.
 
-#### parseinput()
+#### parseinput():
+This function uses the [argparse](https://docs.python.org/3/library/argparse.html) library to parse command-line arguments. It accepts arguments for input text or text file, input format, source language, target language, output text or text file, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
+
+#### promptinput():
+This function prompts the user for input if no command-line arguments were passed to the program. It asks the user for the input format, source language, target language, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
+
+#### translate():
+
+#### filemanager():
+
+#### readaloud():
+
+#### langcodestable():
+
+#### getread():
+
+#### exity():
