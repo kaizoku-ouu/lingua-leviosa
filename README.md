@@ -267,4 +267,4 @@ This function prompts the user for input if no command-line arguments were passe
 #### getread():
 
 #### exity():
->>>>>>> c70a9fb8b0b4a67d47f07c1e4841a883e4d116cf
+
