@@ -40,6 +40,13 @@ Translate a text file from Spanish to English and read the output aloud:
 Translate text from French to German and display the output on the console:
 
 	python project.py -i "Bonjour, comment ça va ?" -s fr -t de`
+     _     _                           _               _                 
+    | |   (_)_ __   __ _ _   _  __ _  | |    _____   _(_) ___  ___  __ _
+    | |   | | '_ \ / _` | | | |/ _` | | |   / _ \ \ / / |/ _ \/ __|/ _` |
+    | |___| | | | | (_| | |_| | (_| | | |__|  __/\ V /| | (_) \__ \ (_| |
+    |_____|_|_| |_|\__, |\__,_|\__,_| |_____\___| \_/ |_|\___/|___/\__,_|
+                   |___/
+
 	Translated text: Hallo, wie geht's dir ?
 
   
@@ -48,6 +55,13 @@ _This is just an example. the output and prompts may vary according to the users
 
 	\lingua leviosa>python project.py
 	Enter input format:(text/file) Text
+     _     _                           _               _                 
+    | |   (_)_ __   __ _ _   _  __ _  | |    _____   _(_) ___  ___  __ _
+    | |   | | '_ \ / _` | | | |/ _` | | |   / _ \ \ / / |/ _ \/ __|/ _` |
+    | |___| | | | | (_| | |_| | (_| | | |__|  __/\ V /| | (_) \__ \ (_| |
+    |_____|_|_| |_|\__, |\__,_|\__,_| |_____\___| \_/ |_|\___/|___/\__,_|
+                   |___/
+
 	+-----------------------+-------+
 	|        Language       |  Code |
 	+-----------------------+-------+
@@ -205,7 +219,30 @@ _Note: make sure to install the exact versions of the modules as other versions 
 There are nine functions including the _main()_ function.
 
 #### main():
+This function is the entry point of the program. It displays the program's name in ASCII art(using [pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) library), then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput](#parseinput) function. If there aren't, it calls the [promptinput](#promptinput) function. If a KeyboardInterrupt is detected, it calls the [exity](#exity) function with an appropriate message.
 
-This function is the entry point of the program. It displays the program's name in ASCII art, then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput()](#parseinput()) function. If there aren't, it calls the promptinput() function. If a KeyboardInterrupt is detected, it calls the exity() function with an appropriate message.
+#### parseinput():
+This function uses the [argparse](https://docs.python.org/3/library/argparse.html) library to parse command-line arguments. It accepts arguments for input text or text file, input format, source language, target language, output text or text file, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
 
-#### parseinput()
+#### promptinput():
+This function prompts the user for input if no command-line arguments were passed to the program. It asks the user for the input format, source language, target language, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
+
+#### translate():
+This function uses the [googletrans](https://pypi.org/project/googletrans/) library to translate the input text from the source language (srcl) to the target language (targ). If the source language is set to "auto", [googletrans](https://pypi.org/project/googletrans/) automatically detects the language. The function returns the translated text.
+It takes in 3 arguments _text, srcl, targ_.
+    
+```python console
+>>print(translate("xie xie!", srcl="auto", targ="en"))
+>>Translated text: Thank you!
+```
+#### filemanager():
+
+#### readaloud():
+
+#### langcodestable():
+
+#### getread():
+
+#### exity():
+
+
