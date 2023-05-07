@@ -205,6 +205,11 @@ _Note: make sure to install the exact versions of the modules as other versions 
 - `pytest`: A Python library used to perform simple unit-tests on the written python files. You can install it using the following command:
 
         pip install pytest
+
+- `httpcore`: The HTTP Core package provides a minimal low-level HTTP client, which does one thing only. Sending HTTP requests. You can install it using the following command:
+
+        pip install httpcore
+
 -> ___text formating modules used:___
 - `pyfiglet`: A Python library used to convert text to ASCII art. You can install it using the following command:
 
@@ -216,7 +221,7 @@ _Note: make sure to install the exact versions of the modules as other versions 
 
 ### Functions
 
-There are nine functions including the _main()_ function.
+There are ten functions including the _main()_ function.
 
 #### main():
 This function is the entry point of the program. It displays the program's name in ASCII art(using [pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) library), then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput](#parseinput) function. If there aren't, it calls the [promptinput](#promptinput) function. If a KeyboardInterrupt is detected, it calls the [exity](#exity) function with an appropriate message.
@@ -236,8 +241,20 @@ It takes in 3 arguments _text, srcl, targ_.
 >>Translated text: Thank you!
 ```
 #### filemanager():
+This function reads text from an input file (inp) and writes translated text to an output file (out), if specified. It calls the [translate](#translate) function to translate the input text. If no output file is specified, it prints the translated text to the console. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
+It takes in 5 arguments 
+```python
+filemanager(inp, out, src, dest, read=False)
+```
+     
+- `inp`: input file name
+- `out`: output file name
+- `src`: source language
+- `dest`: destination or target language
+- `read`: True or False to read out loud
 
 #### readaloud():
+This function generates audio from the input text using the [gtts](https://gtts.readthedocs.io/en/latest/index.html) library. It saves the audio as an mp3 file and plays it using the [playsound](https://pypi.org/project/playsound/) library. If the specified language is not supported by [gtts](https://gtts.readthedocs.io/en/latest/index.html), it prompts the user whether to translate the text to another language and reads it aloud. If reading aloud is not possible, it prints an error message.
 
 #### langcodestable():
 
@@ -245,26 +262,4 @@ It takes in 3 arguments _text, srcl, targ_.
 
 #### exity():
 
-<<<<<<< HEAD
-
-=======
-This function is the entry point of the program. It displays the program's name in ASCII art(using [pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) library), then checks if there are any command-line arguments passed to it. If there are, it calls the [parseinput](#parseinput) function. If there aren't, it calls the [promptinput](#promptinput) function. If a KeyboardInterrupt is detected, it calls the [exity](#exity) function with an appropriate message.
-
-#### parseinput():
-This function uses the [argparse](https://docs.python.org/3/library/argparse.html) library to parse command-line arguments. It accepts arguments for input text or text file, input format, source language, target language, output text or text file, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
-
-#### promptinput():
-This function prompts the user for input if no command-line arguments were passed to the program. It asks the user for the input format, source language, target language, and whether to read the output aloud. It then calls either the [filemanager](#translate) or [translate](#translate) function based on the input format. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
-
-#### translate():
-
-#### filemanager():
-
-#### readaloud():
-
-#### langcodestable():
-
-#### getread():
-
-#### exity():
-
+#### filecheck():

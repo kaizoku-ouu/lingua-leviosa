@@ -2,6 +2,7 @@ import googletrans
 import gtts
 import sys
 import argparse
+import httpcore
 import pyfiglet
 import re
 from printy import printy, inputy, escape
@@ -18,6 +19,8 @@ def main():
             promptinput()
     except KeyboardInterrupt:
         exity("KeyboardInterrupt", "Buh-Byee")
+    except httpcore.ReadTimeout:
+        exity("Server response issue", "sorry for the inconvenience ")
 
 
 def parseinput():
