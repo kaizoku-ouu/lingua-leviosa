@@ -257,9 +257,87 @@ filemanager(inp, out, src, dest, read=False)
 This function generates audio from the input text using the [gtts](https://gtts.readthedocs.io/en/latest/index.html) library. It saves the audio as an mp3 file and plays it using the [playsound](https://pypi.org/project/playsound/) library. If the specified language is not supported by [gtts](https://gtts.readthedocs.io/en/latest/index.html), it prompts the user whether to translate the text to another language and reads it aloud. If reading aloud is not possible, it prints an error message.
 
 #### langcodestable():
+This function generates a [PrettyTable](https://pypi.org/project/prettytable/) object containing a list of languages and their codes from the input library (lib). It is used to display a table of languages and their codes in the [promptinput](#promptinput) function. It returns the generated table.
 
+```python
+import gtts
+
+print(langcodestable(gtts.lang.tts_langs()))
+
+'''
+output:
++---------------------------+-------+
+|          Language         |  Code |
++---------------------------+-------+
+|         Afrikaans         |   af  |
+|           Arabic          |   ar  |
+|         Bulgarian         |   bg  |
+|          Bengali          |   bn  |
+|          Bosnian          |   bs  |
+|          Catalan          |   ca  |
+|           Czech           |   cs  |
+|           Danish          |   da  |
+|           German          |   de  |
+|           Greek           |   el  |
+|          English          |   en  |
+|          Spanish          |   es  |
+|          Estonian         |   et  |
+|          Finnish          |   fi  |
+|           French          |   fr  |
+|          Gujarati         |   gu  |
+|           Hindi           |   hi  |
+|          Croatian         |   hr  |
+|         Hungarian         |   hu  |
+|         Indonesian        |   id  |
+|         Icelandic         |   is  |
+|          Italian          |   it  |
+|           Hebrew          |   iw  |
+|          Japanese         |   ja  |
+|          Javanese         |   jw  |
+|           Khmer           |   km  |
+|          Kannada          |   kn  |
+|           Korean          |   ko  |
+|           Latin           |   la  |
+|          Latvian          |   lv  |
+|         Malayalam         |   ml  |
+|          Marathi          |   mr  |
+|           Malay           |   ms  |
+|     Myanmar (Burmese)     |   my  |
+|           Nepali          |   ne  |
+|           Dutch           |   nl  |
+|         Norwegian         |   no  |
+|           Polish          |   pl  |
+|         Portuguese        |   pt  |
+|          Romanian         |   ro  |
+|          Russian          |   ru  |
+|          Sinhala          |   si  |
+|           Slovak          |   sk  |
+|          Albanian         |   sq  |
+|          Serbian          |   sr  |
+|         Sundanese         |   su  |
+|          Swedish          |   sv  |
+|          Swahili          |   sw  |
+|           Tamil           |   ta  |
+|           Telugu          |   te  |
+|            Thai           |   th  |
+|          Filipino         |   tl  |
+|          Turkish          |   tr  |
+|         Ukrainian         |   uk  |
+|            Urdu           |   ur  |
+|         Vietnamese        |   vi  |
+|    Chinese (Simplified)   | zh-CN |
+| Chinese (Mandarin/Taiwan) | zh-TW |
+|     Chinese (Mandarin)    |   zh  |
++---------------------------+-------+
+'''
+```
 #### getread():
+This function prompts the user and returns _True_ or _False_ based on the user's input, i.e. whether to read out aloud or not, the input to the prompts can be any of the following: `y`, `yes`, `n`, `no`. it is case-insensitive.
 
 #### exity():
+This function's sole purpose is to print the exit message in color formatted text and call the `sys.exit()` method. 
+
+_Note: As of now i don't know any method or library which can be used to format the text for sys.exit() method, so I made this function. Also [printy](https://github.com/edraobdu/printy) is pretty easy to use._
 
 #### filecheck():
+This function checks the input file type, i.e. whether the input-file is a _text document_ and whether the output-file is either a _text document_ or _empty_.
