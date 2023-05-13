@@ -218,6 +218,15 @@ _Note: make sure to install the exact versions of the modules as other versions 
 
         pip install printy
 
+#### _Other python packages used:_
+
+-[`argparse`🔗](https://docs.python.org/3/library/argparse.html)
+
+-[`sys`🔗](https://docs.python.org/3/library/sys.html)
+
+-[`re`🔗](https://docs.python.org/3/library/re.html)
+
+-[`webbrowser`🔗](https://docs.python.org/3/library/webbrowser.html)
 
 ### Functions
 
@@ -241,7 +250,7 @@ It takes in 3 arguments _text, srcl, targ_.
 >>Translated text: Thank you!
 ```
 #### filemanager():
-This function reads text from an input file (inp) and writes translated text to an output file (out), if specified. It calls the [translate](#translate) function to translate the input text. If no output file is specified, it prints the translated text to the console. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
+This function reads text from an input file (inp) and writes translated text to an output file (out), if specified and opens the file in the default text editor. It calls the [translate](#translate) function to translate the input text. If no output file is specified, it prints the translated text to the console. If reading aloud is requested, it calls the [readaloud](#readaloud) function.
 It takes in 5 arguments 
 ```python
 filemanager(inp, out, src, dest, read=False)

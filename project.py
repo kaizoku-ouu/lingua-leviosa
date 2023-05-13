@@ -5,6 +5,7 @@ import argparse
 import httpcore
 import pyfiglet
 import re
+import webbrowser
 from printy import printy, inputy, escape
 from prettytable import PrettyTable
 from playsound import playsound
@@ -125,7 +126,7 @@ def filemanager(inp, out, src, dest, read=False):
         else:
             with open(out, "w", encoding="utf-8") as fileoutp:
                 fileoutp.write(translatedtext)
-
+            webbrowser.open(out)
     except FileNotFoundError:
         exity("FileNotFoundError", "invalid file")
     if read:
