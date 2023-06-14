@@ -53,7 +53,7 @@ def parseinput():
     elif args.format == "text":
         inputext = args.input
         translated = translate(inputext, srclang, outlang)
-        printy("Translated text:", translated)
+        print("Translated text:", translated)
         if args.read:
             readaloud(translated, args.target)
 
