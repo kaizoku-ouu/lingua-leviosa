@@ -38,9 +38,18 @@ def parseinput():
     parser.add_argument(
         "--read", help="Read the output text aloud", action="store_true"
     )
+    parser.add_argument("-ss", "--ssupport", help="Source supported languages, do not combine this argument with other arguments", action="store_true")
+    parser.add_argument("-ts", "--tsupport", help="Target supported languages, do not combine this argument with other arguments", action="store_true")
+    parser.add_argument("-rs", "--rsupport", help="Read supported languages, do not combine this argument with other arguments", action="store_true")
     args = parser.parse_args()
     srclang = args.source
     outlang = args.target
+    if args.ssupport or args.tsupport:
+        print(langcodestable(googletrans.LANGCODES))
+        sys.exit()
+    if args.rsupport:
+        print(langcodestable(gtts.lang.tts_langs()))
+        sys.exit()
     if args.format == "file":
         if args.input:
             if not filecheck(str(args.input)):
@@ -56,6 +65,7 @@ def parseinput():
         print("Translated text:", translated)
         if args.read:
             readaloud(translated, args.target)
+
 
 
 def promptinput():
