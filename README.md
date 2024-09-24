@@ -1,5 +1,5 @@
 # LINGUA LEVIOSA  
-#### Video Demo:  [YOUTUBE](https://youtu.be/7YNcKOt0bpk)  
+#### Video Demo:  [YOUTUBE](https://youtu.be)  
 ### Description:  
   
 ___Lingua leviosa___ is a  Translate and Read Aloud CLI tool is a Python program that allows users to translate text or text files from one language to another using the _Google Translate API_. The tool supports automatic language detection, and users can specify the source and target languages as well.   
